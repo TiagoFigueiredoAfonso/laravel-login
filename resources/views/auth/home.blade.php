@@ -11,7 +11,7 @@
     <h3>Seja Bem-Vindo(a)! {{$user->name}}!</h3>
     <a href="{{route('logout')}}" class="btn btn-success">Sair</a>
 
-    # <h3>Página de Login criado com o Framework Laravel versão 10.</h3>
+    # <h3>Página de Login criado com o Framework Laravel versão 10</h3>
 
     <p>Passo a passo da criação</p>
     <ol>
