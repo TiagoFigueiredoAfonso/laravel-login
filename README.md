@@ -1,3 +1,4 @@
+
  <p>Passo a passo da criação</p>
     <ol>
         <li><b>Baixar o projeto no site do laravel:</b></li>
@@ -46,8 +47,23 @@
         if(Auth::attempt($validator)){ 
             <span style="display: block; margin-left: 20px;">return redirect()->route('home');</span>
         }
-        </p>
-       
-        
-       
+        </p>       
    </ol>
+   
+   ******
+
+   <div align="center">
+        <h3>Tela de Login</h3>
+        <img src="https://user-images.githubusercontent.com/67653921/232231901-26d2421c-d753-4036-9a52-5c8bb3956895.png">
+   </div>
+    <div align="center">
+        <h3>Tela de Cadastro</h3>
+        <img src="https://user-images.githubusercontent.com/67653921/232232492-2e681168-91d9-4bce-b1e6-92cb48aa41cb.png">
+   </div>
+   <div align="center">
+        <h3>Tela de Home, com botão de Logout</h3>
+        <img src="https://user-images.githubusercontent.com/67653921/232232720-6fa6c0f1-c630-4d6a-9c44-e65b045a9045.png">
+   </div>
+   
+   
+   
