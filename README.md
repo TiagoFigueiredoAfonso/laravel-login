@@ -1,66 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ <p>Passo a passo da criação</p>
+    <ol>
+        <li><b>Baixar o projeto no site do laravel:</b></li>
+        <a href="https://laravel.com/docs/10.x">Laravel 10</a>
+        <li><b>Dentro de uma pasta/diretório, executar o seguinte comando no terminal</b></li>
+       <p>composer create-project laravel/laravel nome-do-seu-projeto</p>
+        <li><b>Crie uma base de dados</b></li>
+        <p>CREATE DATABASE login;</p>
+        <li><b>Dentro do arquivo .env do Laravel, inclua o nome do sua database e as respectivas informações:</b></li>
+        <p>
+         DB_CONNECTION=mysql</br>
+        DB_HOST=127.0.0.1</br>
+        DB_PORT=3306</br>
+        DB_DATABASE=nome-da-sua-base-de-dados</br>
+        DB_USERNAME=root</br>
+        DB_PASSWORD=</br>
+        </p>
+        <li><b>Criar o controller e model</b></li>
+        <p>php artisan make:model Login -c</p>
+        <li><b>Agora, crie as rotas no arquivo web.php e importe o caminho do controller</b></li>
+        <p>use App\Http\Controllers\LoginController;</p>
+        <li><b>Crie as rotas, com as devidas requisições POST e GET:</b></li>
+        <p>Route::get('/', [LoginController::class, 'index'])->name('login');</p>
+        <li><b>Crie as páginas de login, cadastro e home dentro da pastas views</b></li>
+        <p>Botão direito na pasta, <u>"New File"</u></p>
+        <li><b>Utilize o Bootstrap para otimizar a visualização do site, incorporando o CDN. Conforme encontrado no link:</b></li>
+        <p>
+            <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Site Bootstrap</a>
+        </p>
+        <li><b>Execute as migrations para a criação de usuários no banco de dados.</b></li>
+        <p>php artisan migrate</p>
+        <li><b>Preencha o $fillable dos respectivos Models para que as informações sejam inseridos no banco de dados. Por padrão o Model User já vem preenchido.</b></li></br>
+        <li><b>Importar a classe Validator e Hash</b></li>
+        <p>use Illuminate\Support\Facades\Hash</p>
+        <p>use Illuminate\Support\Facades\Auth</p>
+        <li><b>No controller checar se o usuário está logado. Impede de ficar saindo do sistema. Necessário fazer o logout.</b></li>
+        <p>
+            if(Auth::check()){ </br>
+                <span style="display: block; margin-left: 20px;">return redirect()->route('home');</span>
+            }
+        </p>
+        <li><b>Sempre autenticar o password no controller.</b></li>
+        <p>$dados['password'] = Hash::make($dados['password']);</p>
+        <li><b>Verifica se o usuário possui todos os validadores e autoriza o seu login.</b></li>
+        <p>
+        if(Auth::attempt($validator)){ 
+            <span style="display: block; margin-left: 20px;">return redirect()->route('home');</span>
+        }
+        </p>
+       
+        
+       
+   </ol>
